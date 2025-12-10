@@ -7,9 +7,10 @@ import (
 
 	networkingv1 "k8s.io/api/networking/v1"
 
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 func Test_WithCustomAnnotationsTemplate(t *testing.T) {

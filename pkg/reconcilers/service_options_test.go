@@ -2,9 +2,11 @@ package reconcilers
 
 import (
 	"fmt"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/stretchr/testify/require"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 func Test_WithCustomServiceAnnotationsTemplate(t *testing.T) {

@@ -1,12 +1,14 @@
 package reconcilers
 
 import (
-	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
-	"github.com/pkg/errors"
-	corev1 "k8s.io/api/core/v1"
 	"strings"
 	"text/template"
+
+	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
+	"github.com/pkg/errors"
+	corev1 "k8s.io/api/core/v1"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 type ServiceOption func(gs *agonesv1.GameServer, service *corev1.Service) error

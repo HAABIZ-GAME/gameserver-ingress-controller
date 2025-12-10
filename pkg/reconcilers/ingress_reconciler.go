@@ -4,13 +4,14 @@ import (
 	"context"
 
 	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
-	"github.com/Octops/gameserver-ingress-controller/internal/runtime"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
-	"github.com/Octops/gameserver-ingress-controller/pkg/record"
 	"github.com/pkg/errors"
 	networkingv1 "k8s.io/api/networking/v1"
 	k8serrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	"github.com/Octops/gameserver-ingress-controller/internal/runtime"
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
+	"github.com/Octops/gameserver-ingress-controller/pkg/record"
 )
 
 type IngressStore interface {

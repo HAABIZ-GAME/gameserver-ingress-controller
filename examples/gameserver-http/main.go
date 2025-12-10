@@ -1,7 +1,6 @@
 package main
 
 import (
-	sdk "agones.dev/agones/sdks/go"
 	"context"
 	"encoding/json"
 	"flag"
@@ -9,6 +8,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	sdk "agones.dev/agones/sdks/go"
 )
 
 func main() {

@@ -1,10 +1,12 @@
 package record
 
 import (
-	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
 	"fmt"
-	"github.com/Octops/gameserver-ingress-controller/pkg/k8sutil"
+
+	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
 	"k8s.io/apimachinery/pkg/runtime"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/k8sutil"
 )
 
 const (

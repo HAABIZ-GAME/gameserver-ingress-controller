@@ -7,10 +7,11 @@ import (
 	"testing"
 
 	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 	"github.com/stretchr/testify/require"
 	networkingv1 "k8s.io/api/networking/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 func Test_NewIngress_DomainRoutingMode(t *testing.T) {

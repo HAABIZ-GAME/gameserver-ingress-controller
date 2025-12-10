@@ -7,9 +7,10 @@ import (
 	"text/template"
 
 	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 	"github.com/pkg/errors"
 	networkingv1 "k8s.io/api/networking/v1"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 type IngressOption func(gs *agonesv1.GameServer, ingress *networkingv1.Ingress) error

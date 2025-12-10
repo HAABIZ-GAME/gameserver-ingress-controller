@@ -1,18 +1,20 @@
 package stores
 
 import (
+	"context"
+	"time"
+
 	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
 	"agones.dev/agones/pkg/client/clientset/versioned"
 	"agones.dev/agones/pkg/client/informers/externalversions"
 	v1 "agones.dev/agones/pkg/client/informers/externalversions/agones/v1"
-	"context"
-	"github.com/Octops/gameserver-ingress-controller/internal/runtime"
-	"github.com/Octops/gameserver-ingress-controller/pkg/k8sutil"
 	"github.com/pkg/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/cache"
-	"time"
+
+	"github.com/Octops/gameserver-ingress-controller/internal/runtime"
+	"github.com/Octops/gameserver-ingress-controller/pkg/k8sutil"
 )
 
 type AgonesStore struct {
