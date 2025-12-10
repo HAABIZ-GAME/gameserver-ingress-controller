@@ -1,10 +1,12 @@
 package reconcilers
 
 import (
-	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
-	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
+	"github.com/stretchr/testify/require"
+
+	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 )
 
 func Test_MustReconcile(t *testing.T) {
@@ -75,7 +77,7 @@ func Test_MustReconcile(t *testing.T) {
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
 			gs := &agonesv1.GameServer{}
-			gs.Annotations = tc.annotations
+			gs.Labels = tc.annotations
 
 			got, err := reconciler.MustReconcile(gs)
 			if tc.wantErr {

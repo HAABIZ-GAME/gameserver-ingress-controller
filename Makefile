@@ -17,7 +17,7 @@ else
     SED := sed
 endif
 
-PKG_NAME=github.com/Octops/gameserver-ingress-controller
+PKG_NAME=github.com/HAABIZ-GAME/gameserver-ingress-controller
 
 LDFLAGS := -X "${PKG_NAME}/internal/version.Version=${VERSION}"
 LDFLAGS += -X "${PKG_NAME}/internal/version.BuildTS=$(shell date -u '+%Y-%m-%d %I:%M:%S')"

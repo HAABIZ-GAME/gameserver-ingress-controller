@@ -84,7 +84,7 @@ func (r *GameServerReconciler) recordDeprecatedAnnotations(gs *agonesv1.GameServ
 }
 
 func (r *GameServerReconciler) MustReconcile(gs *agonesv1.GameServer) (bool, error) {
-	if value, ok := gameserver.HasAnnotation(gs, gameserver.OctopsAnnotationGameServerIngressReady); ok && len(value) > 0 {
+	if value, ok := gameserver.HasLabel(gs, gameserver.OctopsAnnotationGameServerIngressReady); ok && len(value) > 0 {
 		isReady, err := strconv.ParseBool(value)
 		if err != nil {
 			return true, err

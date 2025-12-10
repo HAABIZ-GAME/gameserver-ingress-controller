@@ -66,6 +66,13 @@ func HasAnnotation(gs *agonesv1.GameServer, annotation string) (string, bool) {
 	return "", false
 }
 
+func HasLabel(gs *agonesv1.GameServer, label string) (string, bool) {
+	if value, ok := gs.Labels[label]; ok {
+		return value, true
+	}
+	return "", false
+}
+
 func IsShutdown(gs *agonesv1.GameServer) bool {
 	if gs == nil {
 		return false
