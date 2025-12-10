@@ -34,8 +34,11 @@ TESTS    := $(shell find internal cmd -name '*.go' -type f -not -name '*.pb.go' 
 
 OCTOPS_BIN := bin/octops-controller
 
-IMAGE_REPO=octops/gameserver-ingress-controller
-DOCKER_IMAGE_TAG ?= octops/gameserver-ingress-controller:${VERSION}
+# GitHub Container Registry (GHCR) - public repo
+# Authentication: docker login ghcr.io -u USERNAME -p TOKEN
+# Or use GITHUB_TOKEN environment variable
+IMAGE_REPO=ghcr.io/haabiz-game/gameserver-ingress-controller
+DOCKER_IMAGE_TAG ?= ghcr.io/haabiz-game/gameserver-ingress-controller:${VERSION}
 RELEASE_TAG=0.3.0
 
 default: clean build
@@ -91,7 +94,7 @@ docker:
 	docker build -t $(DOCKER_IMAGE_TAG) .
 
 buildx:
-	docker buildx build --platform linux/arm64/v8,linux/amd64 --push --tag $(IMAGE_REPO):$(RELEASE_TAG) .
+	docker buildx build --platform linux/amd64 --push --tag $(IMAGE_REPO):$(RELEASE_TAG) .
 
 push: docker
 	docker push $(DOCKER_IMAGE_TAG)
@@ -124,4 +127,4 @@ deploy-local:
 
 make run: docker
 	docker run -it --rm -v ${PWD}/.infrastructure/k3s.yaml:/home/octops/.kube/config \
-	octops/gameserver-ingress-controller:${VERSION} --kubeconfig=/home/octops/.kube/config
+	ghcr.io/haabiz-game/gameserver-ingress-controller:${VERSION} --kubeconfig=/home/octops/.kube/config
