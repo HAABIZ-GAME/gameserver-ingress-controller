@@ -7,12 +7,13 @@ import (
 	"strings"
 
 	agonesv1 "agones.dev/agones/pkg/apis/agones/v1"
+	"github.com/pkg/errors"
+	"k8s.io/client-go/util/retry"
+
 	"github.com/Octops/gameserver-ingress-controller/internal/runtime"
 	"github.com/Octops/gameserver-ingress-controller/pkg/gameserver"
 	"github.com/Octops/gameserver-ingress-controller/pkg/k8sutil"
 	"github.com/Octops/gameserver-ingress-controller/pkg/record"
-	"github.com/pkg/errors"
-	"k8s.io/client-go/util/retry"
 )
 
 type GameServerStore interface {
@@ -52,7 +53,7 @@ func (r *GameServerReconciler) reconcile(ctx context.Context, gs *agonesv1.GameS
 		}
 
 		deepCopy := g.DeepCopy()
-		deepCopy.Annotations[gameserver.OctopsAnnotationGameServerIngressReady] = "true"
+		deepCopy.Labels[gameserver.OctopsAnnotationGameServerIngressReady] = "true"
 
 		result, err = r.store.UpdateGameServer(ctx, deepCopy)
 		if err != nil {
