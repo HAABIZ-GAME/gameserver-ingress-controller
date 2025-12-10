@@ -88,6 +88,7 @@ func MustReconcile(gs *agonesv1.GameServer) bool {
 
 	switch gs.Status.State {
 	case agonesv1.GameServerStateScheduled,
+		agonesv1.GameServerStateAllocated,
 		agonesv1.GameServerStateRequestReady,
 		agonesv1.GameServerStateReady:
 		return true
